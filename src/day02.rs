@@ -1,20 +1,18 @@
 use std::str::FromStr;
 
-use itertools::Itertools;
-
 pub fn part1(input: &String) -> i32 {
     let mut horizontal_pos = 0;
     let mut depth = 0;
     for line in input.lines() {
         match parse_line(&line.to_string()) {
             Action::Forward(v) => {
-                horizontal_pos = horizontal_pos + v;
+                horizontal_pos += v;
             }
             Action::Up(v) => {
-                depth = depth - v;
+                depth -= v;
             }
             Action::Down(v) => {
-                depth = depth + v;
+                depth += v;
             }
             Action::Other => {}
         }
@@ -50,14 +48,14 @@ pub fn part2(input: &String) -> i32 {
     for line in input.lines() {
         match parse_line(&line.to_string()) {
             Action::Forward(v) => {
-                horizontal_pos = horizontal_pos + v;
-                depth = depth + (aim * v);
+                horizontal_pos += v;
+                depth += aim * v;
             }
             Action::Up(v) => {
-                aim = aim - v;
+                aim -= v;
             }
             Action::Down(v) => {
-                aim = aim + v;
+                aim += v;
             }
             Action::Other => {}
         }
