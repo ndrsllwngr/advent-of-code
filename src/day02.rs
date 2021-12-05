@@ -27,7 +27,7 @@ enum Action {
     Other,
 }
 
-fn parse_line(line: &String) -> Action {
+fn parse_line(line: &str) -> Action {
     match &line {
         s if s.contains("forward") => Action::Forward(get_value(s)),
         s if s.contains("up") => Action::Up(get_value(s)),
@@ -36,7 +36,7 @@ fn parse_line(line: &String) -> Action {
     }
 }
 
-fn get_value(line: &String) -> i32 {
+fn get_value(line: &str) -> i32 {
     let vec: Vec<&str> = line.split(' ').collect();
     <i32 as FromStr>::from_str(vec.last().unwrap()).unwrap()
 }
@@ -61,4 +61,24 @@ pub fn part2(input: &String) -> i32 {
         }
     }
     horizontal_pos * depth
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::read_input;
+    const DAY: u8 = 2;
+    const VALID_ANSWER_PART_1: i32 = 1813801;
+    const VALID_ANSWER_PART_2: i32 = 1960569556;
+
+    #[test]
+    fn validate_part_1() -> Result<(), String> {
+        assert_eq!(super::part1(&read_input(DAY)), VALID_ANSWER_PART_1);
+        Ok(())
+    }
+
+    #[test]
+    fn validate_part_2() -> Result<(), String> {
+        assert_eq!(super::part2(&read_input(DAY)), VALID_ANSWER_PART_2);
+        Ok(())
+    }
 }
