@@ -28,7 +28,7 @@ fn calculate_population(initial_fish: Vec<i64>, days: i64) -> i64 {
 
 pub fn part1(input: &String) -> i64 {
     let initial_fish: Vec<i64> = input
-        .split(",")
+        .split(',')
         .map(|s| s.parse::<i64>().unwrap())
         .collect();
     const DAYS: i64 = 80;
@@ -37,7 +37,7 @@ pub fn part1(input: &String) -> i64 {
 
 pub fn part2(input: &String) -> i64 {
     let initial_fish: Vec<i64> = input
-        .split(",")
+        .split(',')
         .map(|s| s.parse::<i64>().unwrap())
         .collect();
     const DAYS: i64 = 256;

@@ -13,7 +13,7 @@ impl FromStr for Point {
     type Err = ParseIntError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let coords: Vec<&str> = s.split(",").collect();
+        let coords: Vec<&str> = s.split(',').collect();
         let x_from = coords[0].parse::<i64>()?;
         let y_from = coords[1].parse::<i64>()?;
         Ok(Point {

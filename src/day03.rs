@@ -33,8 +33,8 @@ pub fn part1(input: &String) -> i32 {
             1
         })
         .collect();
-    let big_str: String = big.clone().into_iter().map(|i| i.to_string()).collect();
-    let small_str: String = small.clone().into_iter().map(|i| i.to_string()).collect();
+    let big_str: String = big.into_iter().map(|i| i.to_string()).collect();
+    let small_str: String = small.into_iter().map(|i| i.to_string()).collect();
 
     i32::from_str_radix(&*big_str, 2).unwrap() * i32::from_str_radix(&*small_str, 2).unwrap()
 }
