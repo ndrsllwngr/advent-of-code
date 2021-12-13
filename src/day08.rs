@@ -9,20 +9,28 @@ pub fn unique_numbers() -> HashSet<i32> {
     unique_numbers
 }
 
+pub fn patterns_and_output(input: &String) -> (Vec<Vec<&str>>, Vec<Vec<&str>>) {
+    let mut patterns: Vec<Vec<&str>> = Vec::new();
+    let mut output: Vec<Vec<&str>> = Vec::new();
+    for (_i, line) in input.lines().enumerate() {
+        let split_str = line
+            .trim()
+            .split('|')
+            .collect::<Vec<&str>>();
+        patterns.push(split_str.first().unwrap().trim().split(' ').collect::<Vec<&str>>());
+        output.push(split_str.last().unwrap().trim().split(' ').collect::<Vec<&str>>());
+    }
+    (patterns, output)
+}
+
 pub fn part1(input: &String) -> i64 {
     let mut count = 0;
     let unique_numbers = unique_numbers();
-    for line in input.lines() {
-        let output_values: Vec<&str> =  line
-            .trim()
-            .split('|')
-            .last()
-            .unwrap()
-            .trim()
-            .split(' ')
-            .collect();
-        for val in output_values {
-            if unique_numbers.contains(&(val.len() as i32)) {
+    let (_, output) = patterns_and_output(input);
+
+    for line in output {
+        for single_output in line {
+            if unique_numbers.contains(&(single_output.len() as i32)) {
                 count += 1;
             }
         }

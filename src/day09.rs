@@ -46,7 +46,7 @@ mod tests {
     use crate::read_input;
 
     const DAY: u8 = 9;
-    const VALID_ANSWER_PART_1: u32 = 0;
+    const VALID_ANSWER_PART_1: u32 = 564;
     const VALID_ANSWER_PART_2: i64 = 0;
 
     #[test]
