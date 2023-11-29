@@ -84,19 +84,21 @@ fn filter(mut lines: Vec<Vec<u8>>, len: usize, most_common: bool) -> Option<u32>
 #[cfg(test)]
 mod tests {
     use crate::read_input;
+    use crate::year2021::YEAR;
+
     const DAY: u8 = 3;
     const VALID_ANSWER_PART_1: i32 = 3923414;
     const VALID_ANSWER_PART_2: u32 = 5852595;
 
     #[test]
     fn validate_part_1() -> Result<(), String> {
-        assert_eq!(super::part1(&read_input(DAY)), VALID_ANSWER_PART_1);
+        assert_eq!(super::part1(&read_input(YEAR, DAY)), VALID_ANSWER_PART_1);
         Ok(())
     }
 
     #[test]
     fn validate_part_2() -> Result<(), String> {
-        assert_eq!(super::part2(&read_input(DAY)), VALID_ANSWER_PART_2);
+        assert_eq!(super::part2(&read_input(YEAR, DAY)), VALID_ANSWER_PART_2);
         Ok(())
     }
 

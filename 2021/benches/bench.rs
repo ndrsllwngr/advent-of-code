@@ -1,6 +1,6 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 
-use advent2021::*;
+use aoc::*;
 
 macro_rules! bench {
     ($c:expr, $path:path, $day_num:expr) => {{
@@ -23,8 +23,8 @@ pub fn criterion_benchmark(c: &mut Criterion) {
     // bench!(c, day05, 5);
     // bench!(c, day06, 6);
     // bench!(c, day07, 7);
-    bench!(c, day08, 8);
-    bench!(c, day09, 9);
+    //bench!(c, day08, 8);
+    //bench!(c, day09, 9);
 }
 
 criterion_group!(benches, criterion_benchmark);
