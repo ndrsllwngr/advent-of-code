@@ -2,7 +2,7 @@ use itertools::Itertools;
 
 use aoc::read_input;
 
-const DAY: u8 = 1;
+const DAY: u8 = 2;
 
 pub fn part1(input: &str) -> u64 {
     unimplemented!()
