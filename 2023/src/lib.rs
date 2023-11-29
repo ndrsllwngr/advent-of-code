@@ -5,7 +5,15 @@ use std::str::FromStr;
 
 pub fn read_input(day_number: u8) -> String {
     let cwd = env::current_dir().unwrap();
-    let path = format!("inputs/{day_number:02}.txt");
+    let path = format!("data/inputs/{day_number:02}.txt");
+    let filename = cwd.join(path.clone());
+    let input = fs::read_to_string(filename).expect(&*format!("Error while reading file from {path}"));
+    input
+}
+
+pub fn read_example(day_number: u8) -> String {
+    let cwd = env::current_dir().unwrap();
+    let path = format!("data/examples/{day_number:02}.txt");
     let filename = cwd.join(path.clone());
     let input = fs::read_to_string(filename).expect(&*format!("Error while reading file from {path}"));
     input

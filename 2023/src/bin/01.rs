@@ -1,11 +1,24 @@
 use itertools::Itertools;
 
-use aoc::read_input;
+use aoc::read_example;
 
 const DAY: u8 = 1;
 
 pub fn part1(input: &str) -> u64 {
-    unimplemented!()
+    let mut max_count: u64 = 0;
+    let mut iter = input.split("\n\n");
+    let _ = iter.map(|b| {
+        let mut tmp_count: u64 = 0;
+        for l in b.lines() {
+            let number: u64 = l.parse().unwrap();
+            tmp_count = tmp_count + number;
+        }
+        if max_count < tmp_count {
+            max_count = tmp_count;
+        }
+        tmp_count
+    }).collect::<Vec<u64>>();
+    max_count
 }
 
 pub fn part2(input: &str) -> u64 {
@@ -14,9 +27,9 @@ pub fn part2(input: &str) -> u64 {
 
 
 fn main() {
-    let input = read_input(DAY);
+    let input = read_example(DAY);
     println!("part1: {}", part1(&input));
-    println!("part2: {}", part2(&input));
+    //println!("part2: {}", part2(&input));
 }
 
 #[cfg(test)]
